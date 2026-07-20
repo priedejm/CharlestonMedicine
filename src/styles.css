@@ -1,0 +1,158 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Charleston Medicine and Behavioral Health - Brand System
+ *
+ * Palette:
+ *   navy       #1B2B6B
+ *   blue       #4A7BC4
+ *   blue-light #A8CBE8
+ *   gold       #C9A96E  (sparingly: CTAs, dividers, stars, hover)
+ *   cream      #F5F2EE
+ *   cream-warm #FAF6EC  (behavioral health bg)
+ *
+ * Type: Cormorant Garamond (serif headings) + Inter (sans body)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-cream: var(--cream);
+  --color-cream-warm: var(--cream-warm);
+
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand */
+  --navy: #1B2B6B;
+  --navy-foreground: #ffffff;
+  --blue: #4A7BC4;
+  --blue-light: #A8CBE8;
+  --gold: #C9A96E;
+  --gold-foreground: #1B2B6B;
+  --cream: #F5F2EE;
+  --cream-warm: #FAF6EC;
+
+  /* Semantic - mapped to brand */
+  --background: #ffffff;
+  --foreground: #1B2B6B;
+  --card: #ffffff;
+  --card-foreground: #1B2B6B;
+  --popover: #ffffff;
+  --popover-foreground: #1B2B6B;
+  --primary: #1B2B6B;
+  --primary-foreground: #ffffff;
+  --secondary: #F5F2EE;
+  --secondary-foreground: #1B2B6B;
+  --muted: #F5F2EE;
+  --muted-foreground: #5b6a8a;
+  --accent: #C9A96E;
+  --accent-foreground: #1B2B6B;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #ffffff;
+  --border: #e6e4df;
+  --input: #e6e4df;
+  --ring: #4A7BC4;
+}
+
+.dark {
+  --background: #0e1538;
+  --foreground: #F5F2EE;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+  a, button {
+    transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 80rem;
+}
+
+@utility gold-rule {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background-color: var(--gold);
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--navy);
+  font-weight: 500;
+}
