@@ -151,7 +151,8 @@ function BehavioralHealthPage() {
       {/* Fees table */}
       <Section bg="cream-warm">
         <SectionHeading eyebrow="Pricing" title="Behavioral Health Services and Fees" />
-        <div className="mt-10 overflow-hidden rounded-2xl border border-navy/15 bg-white shadow-sm">
+        {/* Desktop/tablet: table */}
+        <div className="mt-10 hidden overflow-hidden rounded-2xl border border-navy/15 bg-white shadow-sm md:block">
           <table className="w-full text-left">
             <thead>
               <tr className="bg-navy text-white">
@@ -170,6 +171,17 @@ function BehavioralHealthPage() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Mobile: stacked cards so price is never cut off */}
+        <div className="mt-10 grid gap-3 md:hidden">
+          {FEES.map(([cat, desc, price]) => (
+            <div key={`${cat}-${desc}`} className="rounded-2xl border border-navy/15 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{cat}</p>
+              <p className="mt-2 text-sm text-navy/85">{desc}</p>
+              <p className="mt-3 text-lg font-semibold text-navy">{price}</p>
+            </div>
+          ))}
         </div>
         <p className="mt-6 max-w-3xl text-sm leading-relaxed text-navy/70">
           We do not accept insurance for Behavioral Health services and do not offer a sliding scale. We do ask that

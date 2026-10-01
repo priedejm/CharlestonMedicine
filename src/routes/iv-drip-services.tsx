@@ -11,6 +11,7 @@ import nad1 from "@/assets/nad-1.jpg";
 import nad3 from "@/assets/nad-3.jpg";
 import nad5 from "@/assets/nad-5.jpg";
 import ivHeroVideo from "@/assets/iv.webm";
+import ivHeroVideoMp4 from "@/assets/iv.mp4";
 
 export const Route = createFileRoute("/iv-drip-services")({
   head: () => ({
@@ -99,7 +100,7 @@ const QUOTES = [
 function IVPage() {
   return (
     <>
-      <VideoHero label="IV wellness / clinical lifestyle" height="min-h-[60vh]" src={ivHeroVideo}>
+      <VideoHero label="IV wellness / clinical lifestyle" height="min-h-[60vh]" src={ivHeroVideo} mp4Src={ivHeroVideoMp4}>
         <p className="eyebrow text-gold">IV Drip Services</p>
         <h1 className="mt-4 font-serif text-5xl text-white md:text-7xl">Hydration. <em className="italic text-blue-light">Vitality.</em> Recovery.</h1>
         <p className="mt-5 max-w-xl text-white/85">Medically-administered IV therapy designed around your goals.</p>

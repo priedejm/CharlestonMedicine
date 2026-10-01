@@ -4,6 +4,7 @@ import { HeartBullet } from "@/components/site/HeartBullet";
 import { Section, SectionHeading, VideoHero, GoldRule, CtaButton, Reveal } from "@/components/site/Primitives";
 import { WhiteGloveBanner } from "@/components/site/WhiteGloveBanner";
 import heroVideo from "@/assets/citySkyline-web.webm";
+import heroVideoMp4 from "@/assets/citySkyline-web.mp4";
 
 export const Route = createFileRoute("/concierge-medicine")({
   head: () => ({
@@ -29,7 +30,7 @@ const PILLARS = [
 function ConciergePage() {
   return (
     <>
-      <VideoHero label="Charleston downtown / waterway" height="min-h-[62vh]" src={heroVideo}>
+      <VideoHero label="Charleston downtown / waterway" height="min-h-[62vh]" src={heroVideo} mp4Src={heroVideoMp4}>
         <p className="eyebrow text-gold">Concierge Medicine</p>
         <h1 className="mt-4 font-serif text-5xl text-white md:text-7xl">A boutique approach to your health.</h1>
         <p className="mt-5 max-w-xl text-white/85">Personalized attention, elevated care, and meaningful patient relationships.</p>

@@ -16,6 +16,7 @@ import { WhiteGloveBanner } from "@/components/site/WhiteGloveBanner";
 import { SITE } from "@/lib/site";
 import teamPhoto from "@/assets/hero-team.jpg";
 import heroVideo from "@/assets/waterAndCityAerial-web.webm";
+import heroVideoMp4 from "@/assets/waterAndCityAerial-web.mp4";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -30,15 +31,19 @@ const BrandHeart = ({ className }: { className?: string; strokeWidth?: number })
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Charleston Medicine and Behavioral Health | Concierge Care on James Island" },
+      { title: "Charleston Medicine and Behavioral Health | Whole-Person Care in Charleston" },
       {
         name: "description",
         content:
-          "Whole-person care, elevated. Integrated concierge medicine, behavioral health, women's health, and IV wellness on James Island, Charleston, SC.",
+          "Integrated primary care, behavioral health, women's health, and wellness — welcoming patients across the Charleston area.",
       },
-      { property: "og:title", content: "Charleston Medicine and Behavioral Health" },
-      { property: "og:description", content: "Integrated concierge medicine on James Island, Charleston." },
-      { property: "og:url", content: "/" },
+      { property: "og:title", content: "Charleston Medicine and Behavioral Health | Whole-Person Care in Charleston" },
+      {
+        property: "og:description",
+        content:
+          "Integrated primary care, behavioral health, women's health, and wellness — welcoming patients across the Charleston area.",
+      },
+      { property: "og:url", content: "https://charlestonmedicine.com/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
@@ -82,7 +87,7 @@ const WHY = [
   { icon: UserCheck, title: "Individualized, high-quality care" },
   { icon: Clock, title: "Same-day access when you need us" },
   { icon: FlaskConical, title: "Onsite lab and diagnostics" },
-  { icon: PhoneCall, title: "24-hour provider access for Enhanced Access members" },
+  { icon: PhoneCall, title: "24-hour provider access for Premier Access members" },
 ];
 
 const REVIEWS = [
@@ -121,14 +126,15 @@ const TEAM_PREVIEW = [
 function HomePage() {
   return (
     <>
-      <VideoHero label="Charleston aerial / waterway" src={heroVideo}>
-        <p className="eyebrow text-gold">James Island · Charleston, SC</p>
+      <VideoHero label="Charleston aerial / waterway" src={heroVideo} mp4Src={heroVideoMp4}>
+        <p className="eyebrow text-gold">Charleston, SC</p>
         <h1 className="mt-4 font-serif text-5xl leading-[1.02] text-white md:text-7xl">
           Whole-Person Care.
           <span className="block italic text-blue-light">Elevated.</span>
         </h1>
         <p className="mt-6 max-w-xl text-base text-white/85 md:text-lg">
-          Integrated concierge medicine, behavioral health, and wellness on James Island, Charleston.
+          Integrated primary care, behavioral health, women's health, and wellness — welcoming patients across the
+          Charleston area.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
           <CtaButton variant="gold" to="/new-patients">Become a Patient</CtaButton>

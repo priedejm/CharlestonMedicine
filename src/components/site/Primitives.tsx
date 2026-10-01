@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode, type CSSProperties, type ElementType } from "react";
 
 export function Reveal({
@@ -174,12 +175,14 @@ export function VideoHero({
   children,
   height = "min-h-[88vh]",
   src,
+  mp4Src,
   img,
 }: {
   label: string;
   children: ReactNode;
   height?: string;
   src?: string;
+  mp4Src?: string;
   img?: string;
 }) {
   const hasMedia = Boolean(src || img);
@@ -191,7 +194,7 @@ export function VideoHero({
     v.muted = true;
     v.setAttribute("muted", "");
     v.play().catch(() => {});
-  }, [src]);
+  }, [src, mp4Src]);
 
   return (
     <section className={cn("relative isolate overflow-hidden bg-navy text-white", height)}>
@@ -199,12 +202,14 @@ export function VideoHero({
         <video
           ref={videoRef}
           className="absolute inset-0 size-full object-cover"
-          src={src}
           autoPlay
           loop
           muted
           playsInline
-        />
+        >
+          {mp4Src && <source src={mp4Src} type="video/mp4" />}
+          <source src={src} type="video/webm" />
+        </video>
       ) : img ? (
         <img className="absolute inset-0 size-full object-cover" src={img} alt="" />
       ) : (
@@ -253,11 +258,10 @@ export function CtaButton({
     "white-outline": "border border-white/70 text-white hover:bg-white hover:text-navy hover:-translate-y-0.5",
   };
   if (to) {
-    // Use plain anchor - Link import-cycle avoidance; SiteHeader uses Link separately.
     return (
-      <a href={to} className={cn(base, styles[variant], className)} {...rest}>
+      <Link to={to} className={cn(base, styles[variant], className)} {...rest}>
         {children}
-      </a>
+      </Link>
     );
   }
   return (

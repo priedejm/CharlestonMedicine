@@ -6,6 +6,7 @@ import drExamRoom from "@/assets/DRinExamRoom.jpg";
 import clinicalTeam from "@/assets/ClinicalTeam.jpg";
 import staffGroup from "@/assets/teamgroup3.jpg";
 import heroVideo from "@/assets/MarinaAndWater-web.webm";
+import heroVideoMp4 from "@/assets/MarinaAndWater-web.mp4";
 
 export const Route = createFileRoute("/physical-health")({
   head: () => ({
@@ -33,7 +34,7 @@ const SERVICES = [
 function PhysicalHealthPage() {
   return (
     <>
-      <VideoHero label="Charleston palmetto / waterway" height="min-h-[60vh]" src={heroVideo}>
+      <VideoHero label="Charleston palmetto / waterway" height="min-h-[60vh]" src={heroVideo} mp4Src={heroVideoMp4}>
         <p className="eyebrow text-gold">Primary Care</p>
         <h1 className="mt-4 font-serif text-5xl text-white md:text-7xl">Physical Health</h1>
         <p className="mt-5 max-w-xl text-white/85">Proactive, personalized care that treats more than symptoms.</p>

@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Charleston Medicine and Behavioral Health | Concierge Care on James Island" },
+      { title: "Charleston Medicine and Behavioral Health | Whole-Person Care in Charleston" },
       {
         name: "description",
         content:
@@ -87,7 +87,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Charleston Medicine and Behavioral Health" },
       { property: "og:site_name", content: "Charleston Medicine and Behavioral Health" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "Charleston Medicine and Behavioral Health | Whole-Person Care in Charleston" },
+      { property: "og:image", content: "https://charlestonmedicine.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Charleston Medicine and Behavioral Health | Whole-Person Care in Charleston" },
+      { name: "twitter:image", content: "https://charlestonmedicine.com/og-image.png" },
       { name: "theme-color", content: "#1B2B6B" },
     ],
     links: [

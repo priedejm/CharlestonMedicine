@@ -62,19 +62,19 @@ export function SiteFooter() {
 
         <div>
           <h3 className="text-xs uppercase tracking-[0.2em] text-gold">Contact</h3>
-          <ul className="mt-4 space-y-3 text-sm text-white/85">
+          <ul className="mt-3 space-y-1 text-sm text-white/85">
             <li>
-              <a href={SITE.phoneHref} className="inline-flex items-center gap-2 hover:text-gold">
+              <a href={SITE.phoneHref} className="inline-flex min-h-11 items-center gap-2 hover:text-gold">
                 <Phone className="size-4 text-blue-light" /> Call {SITE.phone}
               </a>
             </li>
             <li>
-              <a href={SITE.textHref} className="inline-flex items-center gap-2 hover:text-gold">
+              <a href={SITE.textHref} className="inline-flex min-h-11 items-center gap-2 hover:text-gold">
                 <MessageSquare className="size-4 text-blue-light" /> Text {SITE.text}
               </a>
             </li>
             <li>
-              <a href={SITE.emailHref} className="inline-flex items-center gap-2 hover:text-gold">
+              <a href={SITE.emailHref} className="inline-flex min-h-11 items-center gap-2 hover:text-gold">
                 <Mail className="size-4 text-blue-light" /> {SITE.email}
               </a>
             </li>

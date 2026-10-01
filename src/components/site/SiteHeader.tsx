@@ -25,7 +25,7 @@ export function SiteHeader() {
     >
       <div
         className={cn(
-          "flex items-center justify-between gap-6 pl-4 pr-4 transition-all duration-300 md:pl-8 md:pr-8",
+          "flex items-center justify-between gap-3 pl-4 pr-4 transition-all duration-300 md:pl-8 md:pr-8 xl:gap-3 xl:pl-6 xl:pr-6 2xl:gap-6 2xl:pl-8 2xl:pr-8",
           scrolled ? "h-16 md:h-20" : "h-20 md:h-24",
         )}
       >
@@ -37,8 +37,8 @@ export function SiteHeader() {
           />
         </Link>
 
-        <div className="ml-auto hidden items-center gap-6 xl:flex 2xl:gap-8">
-          <nav className="flex items-center gap-5 2xl:gap-7">
+        <div className="ml-auto hidden items-center gap-3 xl:flex 2xl:gap-8">
+          <nav className="flex items-center gap-3 2xl:gap-7">
             {NAV.slice(1, -1).map((n) => (
               <Link
                 key={n.to}
@@ -58,21 +58,30 @@ export function SiteHeader() {
           </a>
           <Link
             to="/contact"
-            className="inline-flex h-10 items-center whitespace-nowrap rounded-full bg-gold px-5 text-sm font-medium text-navy shadow-sm transition-all hover:bg-gold/90 hover:shadow"
+            className="inline-flex h-10 items-center whitespace-nowrap rounded-full bg-gold px-4 text-sm font-medium text-navy shadow-sm transition-all hover:bg-gold/90 hover:shadow 2xl:px-5"
           >
             Contact Us
           </Link>
         </div>
 
-        <button
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((o) => !o)}
-          className="relative inline-flex size-10 items-center justify-center rounded-md text-navy xl:hidden"
-        >
-          <Menu className={cn("absolute size-5 transition-all duration-300", open ? "rotate-90 opacity-0" : "rotate-0 opacity-100")} />
-          <X className={cn("absolute size-5 transition-all duration-300", open ? "rotate-0 opacity-100" : "-rotate-90 opacity-0")} />
-        </button>
+        <div className="flex items-center gap-1.5 xl:hidden">
+          <a
+            href={SITE.phoneHref}
+            aria-label={`Call ${SITE.phone}`}
+            className="inline-flex size-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors hover:bg-cream"
+          >
+            <Phone className="size-5" />
+          </a>
+          <button
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+            className="relative inline-flex size-11 items-center justify-center rounded-md text-navy"
+          >
+            <Menu className={cn("absolute size-5 transition-all duration-300", open ? "rotate-90 opacity-0" : "rotate-0 opacity-100")} />
+            <X className={cn("absolute size-5 transition-all duration-300", open ? "rotate-0 opacity-100" : "-rotate-90 opacity-0")} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
